@@ -89,6 +89,14 @@ view: users {
     sql: CONCAT(${first_name}, ' ', ${last_name}) ;;
   }
 
+  dimension: age_tier {
+    type: tier
+    tiers: [1,10,20,30,40,50,60,70,80,90]
+    style: integer
+    sql: ${age};;
+    value_format: "0"
+  }
+
   dimension: state {
     type: string
     sql: ${TABLE}.state ;;
@@ -103,6 +111,7 @@ view: users {
     type: zipcode
     sql: ${TABLE}.zip ;;
   }
+
 
   measure: count {
     type: count
