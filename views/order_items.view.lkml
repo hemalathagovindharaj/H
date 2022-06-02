@@ -50,6 +50,7 @@ view: order_items {
     type: number
     sql: ${TABLE}.sale_price ;;
     value_format: "$#.00;($#.00)"
+    hidden: yes
   }
 
 
