@@ -49,7 +49,9 @@ view: order_items {
   dimension: sale_price {
     type: number
     sql: ${TABLE}.sale_price ;;
+    value_format: "$#.00;($#.00)"
   }
+
 
   # A measure is a field that uses a SQL aggregate function. Here are defined sum and average
   # measures for this dimension, but you can also add measures of many different aggregates.
@@ -63,6 +65,12 @@ view: order_items {
   measure: average_sale_price {
     type: average
     sql: ${sale_price} ;;
+  }
+
+  measure: total_revenue {
+    type: sum
+    sql: ${sale_price} ;;
+    value_format: "$#.00;($#.00)"
   }
 
   measure: count {
